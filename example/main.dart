@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:multiselectchipgroup/multiselectchipgroup.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -107,6 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 'Evan',
                 'Nadia',
                 'iafgdiafgsuiayfgayifgiafg'
+              ],
+              preSelectedItems: [
+                'Evan',
+                'Nadia',
               ],
               onSelectionChanged: (values) {
                 print(values);

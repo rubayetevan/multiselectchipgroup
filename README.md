@@ -1,18 +1,24 @@
-# multiselectchipgroup
+# MultiSelectChipGroup
 
-A flluter package to provide multiselect capable chip group
+Multiselectchipgroup is a flutter library which creates Mult selectable chip group with heavy customization
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+Use the package manager [pub](https://pub.dev) to install MultiSelectChipGroup.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```bash
+dependencies:
+  multiselectchipgroup: ^0.1.1
+```
+```bash
+Install it
+  flutter pub get
+```
 
+## Usage
+
+```dart
+import 'package:multiselectchipgroup/multiselectchipgroup.dart';
 
 MultiSelectChipGroup(
               items: [
@@ -21,6 +27,10 @@ MultiSelectChipGroup(
                 'Evan',
                 'Nadia',
                 'iafgdiafgsuiayfgayifgiafg'
+              ],
+              preSelectedItems: [
+                'Evan',
+                'Nadia',
               ],
               onSelectionChanged: (values) {
                 print(values);
@@ -37,3 +47,12 @@ MultiSelectChipGroup(
                 Icons.perm_identity,
               ],
             ),
+```
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
