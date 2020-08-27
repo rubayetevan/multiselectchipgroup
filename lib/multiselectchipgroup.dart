@@ -6,7 +6,8 @@ class MultiSelectChipGroup extends StatefulWidget {
   final List<String> items;
   final Function(List<String>) onSelectionChanged;
   final List<IconData> leftIcons;
-
+  final WrapAlignment alignment;
+  final WrapAlignment runAlignment;
   final Color selectedColor;
   final Color disabledColor;
   final Color labelSelectedColor;
@@ -37,7 +38,9 @@ class MultiSelectChipGroup extends StatefulWidget {
       this.leftIcons,
       this.horizontalChipSpacing,
       this.verticalChipSpacing,
-      this.preSelectedItems});
+      this.preSelectedItems,
+      this.alignment,
+      this.runAlignment});
 
   @override
   _MultiSelectChipGroupState createState() =>
@@ -64,6 +67,8 @@ class _MultiSelectChipGroupState extends State<MultiSelectChipGroup> {
     });
 
     return Wrap(
+      alignment: widget.alignment ?? WrapAlignment.start,
+      runAlignment: widget.runAlignment ?? WrapAlignment.start,
       spacing: widget.horizontalChipSpacing == null
           ? 0
           : widget.horizontalChipSpacing,
