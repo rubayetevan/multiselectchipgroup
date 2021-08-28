@@ -4,28 +4,28 @@ import 'package:flutter/material.dart';
 
 class MultiSelectChipGroup extends StatefulWidget {
   final List<String> items;
-  final Function(List<String>) onSelectionChanged;
-  final List<IconData> leftIcons;
-  final WrapAlignment alignment;
-  final WrapAlignment runAlignment;
+  final Function(List<String>)? onSelectionChanged;
+  final List<IconData>? leftIcons;
+  final WrapAlignment? alignment;
+  final WrapAlignment? runAlignment;
   final Color selectedColor;
   final Color disabledColor;
-  final Color labelSelectedColor;
-  final Color labelDisabledColor;
-  final Color iconDisabledColor;
-  final Color iconSelectedColor;
-  final IconData leftCommonIcon;
-  final double leftIconSize;
-  final EdgeInsetsGeometry padding;
-  final double labelFontSize;
-  final double horizontalChipSpacing;
-  final double verticalChipSpacing;
-  final List<String> preSelectedItems;
+  final Color? labelSelectedColor;
+  final Color? labelDisabledColor;
+  final Color? iconDisabledColor;
+  final Color? iconSelectedColor;
+  final IconData? leftCommonIcon;
+  final double? leftIconSize;
+  final EdgeInsetsGeometry? padding;
+  final double? labelFontSize;
+  final double? horizontalChipSpacing;
+  final double? verticalChipSpacing;
+  final List<String>? preSelectedItems;
 
   MultiSelectChipGroup(
-      {@required this.items,
-      @required this.selectedColor,
-      @required this.disabledColor,
+      {required this.items,
+      required this.selectedColor,
+      required this.disabledColor,
       this.onSelectionChanged,
       this.labelSelectedColor,
       this.labelDisabledColor,
@@ -48,10 +48,10 @@ class MultiSelectChipGroup extends StatefulWidget {
 }
 
 class _MultiSelectChipGroupState extends State<MultiSelectChipGroup> {
-  List<String> selectedChoices = List<String>();
+  List<String> selectedChoices = <String>[];
 
-  _MultiSelectChipGroupState(List<String> preSelectedItems,
-      Function(List<String>) onSelectionChanged) {
+  _MultiSelectChipGroupState(List<String>? preSelectedItems,
+      Function(List<String>)? onSelectionChanged) {
     if (preSelectedItems != null) {
       selectedChoices = preSelectedItems;
       if (onSelectionChanged != null) onSelectionChanged(selectedChoices);
@@ -60,10 +60,10 @@ class _MultiSelectChipGroupState extends State<MultiSelectChipGroup> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> choiceChips = List<Widget>();
+    final List<Widget> choiceChips = <Widget>[];
     widget.items.asMap().forEach((index, item) {
       choiceChips.add(choiceChip(item,
-          leftIcon: widget.leftIcons != null ? widget.leftIcons[index] : null));
+          leftIcon: widget.leftIcons != null ? widget.leftIcons![index] : null));
     });
 
     return Wrap(
@@ -71,14 +71,14 @@ class _MultiSelectChipGroupState extends State<MultiSelectChipGroup> {
       runAlignment: widget.runAlignment ?? WrapAlignment.start,
       spacing: widget.horizontalChipSpacing == null
           ? 0
-          : widget.horizontalChipSpacing,
+          : widget.horizontalChipSpacing!,
       runSpacing:
-          widget.verticalChipSpacing == null ? 0 : widget.verticalChipSpacing,
+          widget.verticalChipSpacing == null ? 0 : widget.verticalChipSpacing!,
       children: choiceChips,
     );
   }
 
-  Widget choiceChip(String item, {IconData leftIcon}) {
+  Widget choiceChip(String item, {IconData? leftIcon}) {
     return ChoiceChip(
       labelStyle: TextStyle(
           fontSize: widget.labelFontSize == null ? 14 : widget.labelFontSize,
@@ -115,7 +115,7 @@ class _MultiSelectChipGroupState extends State<MultiSelectChipGroup> {
               ? selectedChoices.remove(item)
               : selectedChoices.add(item);
           if (widget.onSelectionChanged != null)
-            widget.onSelectionChanged(selectedChoices); // +added
+            widget.onSelectionChanged!(selectedChoices); // +added
         });
       },
     );
