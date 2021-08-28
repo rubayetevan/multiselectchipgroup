@@ -1,6 +1,6 @@
 name: multiselectchipgroup
 description: A flluter package to provide multiselect capable chip group. Multiselectchipgroup is a flutter library which creates Mult selectable chip group with heavy customization.
-version: 0.1.4
+version: 0.1.6
 author: MD Rubayet Hassan<rubayet.evan@gmail.com>
 homepage: https://github.com/rubayetevan/multiselectchipgroup
 
